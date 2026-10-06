@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Microfinance AI | Repayment Prediction</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="top-header">
+
+        <div class="brand">
+            <div class="brand-icon">AI</div>
+
+            <div>
+                <h1>MicroFinance AI</h1>
+                <p>Intelligent Repayment Assessment</p>
+            </div>
+        </div>
+
+        <div class="status-badge">
+            ● MODEL ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="ai-badge">
+                AI-POWERED • 5-DAY REPAYMENT PREDICTION
+            </span>
+
+            <h2>
+                Predict Loan Repayment
+                <span>Before Risk Becomes Reality.</span>
+            </h2>
+
+            <p>
+                Analyze customer behaviour, recharge activity and
+                loan history using a machine learning model to
+                estimate repayment probability.
+            </p>
+
+        </div>
+
+        <div class="hero-stat">
+
+            <div class="stat-number">ML</div>
+
+            <div>
+                <strong>Smart Risk Analysis</strong>
+                <small>Data-driven prediction</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="dashboard">
+
+        <!-- Section heading -->
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">PREDICTION ENGINE</span>
+
+                <h2>Customer Risk Assessment</h2>
+
+                <p>
+                    Enter the customer's information below to generate
+                    an AI-based repayment prediction.
+                </p>
+            </div>
+
+            <div class="model-info">
+                <span>MODEL</span>
+                <strong>HistGradientBoosting</strong>
+            </div>
+
+        </div>
+
+
+        <!-- ================= FORM ================= -->
+
+        <form id="predictionForm">
+
+
+            <!-- CUSTOMER PROFILE -->
+
+            <section class="input-card">
+
+                <div class="card-header">
+
+                    <div class="card-number">01</div>
+
+                    <div>
+                        <h3>Customer Profile</h3>
+                        <p>Basic customer information</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Customer ID (MSISDN)</label>
+                        <input
+                            type="number"
+                            id="msisdn"
+                            placeholder="Enter customer ID"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age on Network (AON)</label>
+                        <input
+                            type="number"
+                            id="aon"
+                            step="any"
+                            placeholder="Example: 272"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECHARGE & USAGE -->
+
+            <section class="input-card">
+
+                <div class="card-header">
+
+                    <div class="card-number">02</div>
+
+                    <div>
+                        <h3>Recharge & Usage Behaviour</h3>
+                        <p>Customer recharge and usage patterns</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Daily Decr. — 30 Days</label>
+                        <input type="number" id="daily_decr30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Daily Decr. — 90 Days</label>
+                        <input type="number" id="daily_decr90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rental — 30 Days</label>
+                        <input type="number" id="rental30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rental — 90 Days</label>
+                        <input type="number" id="rental90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Recharge Date — MA</label>
+                        <input type="number" id="last_rech_date_ma" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Recharge Date — DA</label>
+                        <input type="number" id="last_rech_date_da" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Recharge Amount — MA</label>
+                        <input type="number" id="last_rech_amt_ma" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Recharge Count — 30 Days</label>
+                        <input type="number" id="cnt_ma_rech30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Recharge Frequency — 30 Days</label>
+                        <input type="number" id="fr_ma_rech30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Recharge Amount — 30 Days</label>
+                        <input type="number" id="sumamnt_ma_rech30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Median Recharge Amount — 30 Days</label>
+                        <input type="number" id="medianamnt_ma_rech30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Median Recharge Pre-Balance — 30 Days</label>
+                        <input type="number" id="medianmarechprebal30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Recharge Count — 90 Days</label>
+                        <input type="number" id="cnt_ma_rech90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Recharge Frequency — 90 Days</label>
+                        <input type="number" id="fr_ma_rech90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Recharge Amount — 90 Days</label>
+                        <input type="number" id="sumamnt_ma_rech90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Median Recharge Amount — 90 Days</label>
+                        <input type="number" id="medianamnt_ma_rech90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Median Recharge Pre-Balance — 90 Days</label>
+                        <input type="number" id="medianmarechprebal90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>DA Recharge Count — 30 Days</label>
+                        <input type="number" id="cnt_da_rech30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>DA Recharge Frequency — 30 Days</label>
+                        <input type="number" id="fr_da_rech30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>DA Recharge Count — 90 Days</label>
+                        <input type="number" id="cnt_da_rech90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>DA Recharge Frequency — 90 Days</label>
+                        <input type="number" id="fr_da_rech90" step="any" required>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LOAN HISTORY -->
+
+            <section class="input-card">
+
+                <div class="card-header">
+
+                    <div class="card-number">03</div>
+
+                    <div>
+                        <h3>Loan History</h3>
+                        <p>Recent borrowing activity</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Loan Count — 30 Days</label>
+                        <input type="number" id="cnt_loans30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Loan Amount — 30 Days</label>
+                        <input type="number" id="amnt_loans30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Maximum Loan Amount — 30 Days</label>
+                        <input type="number" id="maxamnt_loans30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Median Loan Amount — 30 Days</label>
+                        <input type="number" id="medianamnt_loans30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Loan Count — 90 Days</label>
+                        <input type="number" id="cnt_loans90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Loan Amount — 90 Days</label>
+                        <input type="number" id="amnt_loans90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Maximum Loan Amount — 90 Days</label>
+                        <input type="number" id="maxamnt_loans90" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Median Loan Amount — 90 Days</label>
+                        <input type="number" id="medianamnt_loans90" step="any" required>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- REPAYMENT BEHAVIOUR -->
+
+            <section class="input-card">
+
+                <div class="card-header">
+
+                    <div class="card-number">04</div>
+
+                    <div>
+                        <h3>Repayment Behaviour</h3>
+                        <p>Historical repayment indicators</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Payback — 30 Days</label>
+                        <input type="number" id="payback30" step="any" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Payback — 90 Days</label>
+                        <input type="number" id="payback90" step="any" required>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TRANSACTION INFORMATION -->
+
+            <section class="input-card">
+
+                <div class="card-header">
+
+                    <div class="card-number">05</div>
+
+                    <div>
+                        <h3>Transaction Information</h3>
+                        <p>Select the date used for prediction</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid single">
+
+                    <div class="form-group">
+                        <label>Prediction Date</label>
+
+                        <input
+                            type="text"
+                            id="pdate"
+                            placeholder="DD-MM-YYYY"
+                            required
+                        >
+
+                        <small>
+                            Format: DD-MM-YYYY
+                        </small>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ACTION -->
+
+            <div class="prediction-action">
+
+                <div>
+                    <strong>Ready to assess this customer?</strong>
+
+                    <p>
+                        The AI model will analyze the entered information
+                        and estimate repayment probability.
+                    </p>
+                </div>
+
+                <button type="submit" id="predictButton">
+                    <span>Predict Repayment</span>
+                    <span class="arrow">→</span>
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section id="result" class="result-card hidden">
+
+            <div class="result-top">
+
+                <div>
+                    <span class="section-label">AI PREDICTION</span>
+
+                    <h2>Repayment Assessment</h2>
+                </div>
+
+                <div class="result-status">
+                    RESULT
+                </div>
+
+            </div>
+
+
+            <div class="result-main">
+
+                <div class="probability-circle">
+
+                    <div class="circle-content">
+
+                        <strong id="probability">0%</strong>
+
+                        <span>Probability</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="result-message">
+
+                    <span class="result-caption">
+                        MODEL ASSESSMENT
+                    </span>
+
+                    <h3 id="predictionText">
+                        Prediction
+                    </h3>
+
+                    <p>
+                        This score represents the estimated probability
+                        of the customer repaying the loan based on the
+                        information provided.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-note">
+
+                <strong>Important:</strong>
+
+                This prediction is a machine learning estimate and
+                should be used as a decision-support tool rather than
+                as the sole basis for financial decisions.
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT MODEL ================= -->
+
+        <section class="about-model">
+
+            <div>
+
+                <span class="section-label">
+                    ABOUT THE SYSTEM
+                </span>
+
+                <h2>Intelligent Microfinance Risk Analysis</h2>
+
+                <p>
+                    This system uses customer recharge behaviour,
+                    loan history and repayment-related features to
+                    estimate the likelihood of loan repayment.
+                </p>
+
+            </div>
+
+
+            <div class="model-cards">
+
+                <div class="mini-card">
+                    <strong>ML</strong>
+                    <span>Machine Learning</span>
+                </div>
+
+                <div class="mini-card">
+                    <strong>45</strong>
+                    <span>Model Features</span>
+                </div>
+
+                <div class="mini-card">
+                    <strong>5D</strong>
+                    <span>Repayment Window</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div>
+            <strong>MicroFinance AI</strong>
+
+            <span>
+                | Machine Learning Project
+            </span>
+        </div>
+
+        <p>
+            Intelligent Loan Repayment Prediction System
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
