@@ -138,13 +138,13 @@ form.addEventListener("submit", async function (event) {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/predict",
-            {
-                method: "POST",
+    "https://microfinance-loan-repayment-prediction-1.onrender.com/predict",
+    {
+        method: "POST",
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+        headers: {
+            "Content-Type": "application/json"
+        },
 
                 body: JSON.stringify(data)
             }
